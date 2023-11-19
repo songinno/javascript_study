@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <ul id="fruits">
+    <li class="red">Apple</li>
+    <li class="red">Banana</li>
+    <li class="red">Orange</li>
+  </ul>
+  <script>
+    const $fruits = document.querySelectorAll(".red");
+    console.log($fruits);
+    for (let i=0; i < $fruits.length; i++) {
+      $fruits[i].className = "blue";
+    }
+    
+    const fruits = Array.from($fruits);
+    fruits.forEach(fruitDom => fruitDom.className = "blue");
+    
+  </script>
+</body>

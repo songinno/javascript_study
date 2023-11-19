@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <ul id="fruits">
+    <li class="red">Apple</li>
+    <li class="red">Banana</li>
+    <li class="red">Orange</li>
+  </ul>
+  <script>
+    const $fruits = document.getElementsByClassName("red");
+    console.log($fruits);
+    
+    const fruitsArr = [...$fruits];
+    fruitsArr.forEach(fruit => fruit.className = "blue");
+    console.log(fruitsArr);
+  </script>
+</body>

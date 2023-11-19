@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <ul id="fruits">
+    <li class="red">Apple</li>
+    <li class="red">Banana</li>
+    <li class="red">Orange</li>
+  </ul>
+  <script>
+    /* HTMLCollection  */
+
+    //1. class="red"인 요소의 HTMLCollection을 획득
+    // $fruits = [li.red, li.red, li.red]
+    const $fruits = document.getElementsByClassName("red");
+    console.log($fruits);
+
+    // 2. loop
+    for (let i = 0; i < $fruits.length; i++) {
+      // li 요소들의 클래스를 blue로 변경
+      $fruits[i].className = "blue";
+    }
+    console.log($fruits);
+    /* 
+      1) 첫번째 루프(i=0)
+        - $fruits의 첫번째 요소 li의 class가 blue로 변경됨
+        - 더이상 getElementsByClassName 함수의 인자로 전달한 red와 일치하지 않음
+          -> HTMLCollection 객체에서 실시간으로 제거됨
+        - $fruits = [li.red, li.red] = [2번째 li, 3번째 li]
+
+      2) 두번째 루프(i=1)
+        - i = 1 이므로, [li.red, "li.red"]의 두 번째 요소("" 표시, 3번째 li)의 클래스명을 "blue"로 변경
+          -> HTMLCollection 객체에서 실시간으로 제거됨
+        - $fruits = [li.red] = [2번째 li]
+
+      3) 세번째 루프(i=2)
+        - $fruits[2]는 존재하지 않음 -> loop 종료
+    */
+
+  </script>
+</body>
