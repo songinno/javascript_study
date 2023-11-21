@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <article>
+        <div id="div-01">
+            Here is div-01
+            <div id="div-02">
+                Here is div-02
+                <div id="div-03">Here is div-03</div>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        const el = document.getElementById("div-03");
+        
+        // 가장 가까운 div 태그 
+        console.log(el.closest("div")); // <div id="div-03">Here is div-03</div> (-> 자기 자신)
+
+        // ID가 "div-02"인 가장 가까운 조상
+        console.log(el.closest("#div-02")); // <div id="div-02">
+
+        // div 안에 놓인 div인 가장 가까운 조상
+        console.log(el.closest("div div")); // <div id="div-03">
+
+        // div면서 article을 부모로 둔 가장 가까운 조상
+        console.log(el.closest("article > div")); // <div id="div-01">
+
+        // div가 아닌 가장 가까운 조상
+        console.log(el.closest(":not(div)")); // <article>
+    </script>
+</body>
+
+</html>
