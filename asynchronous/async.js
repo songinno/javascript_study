@@ -1,7 +1,7 @@
 // !!! async & await
 // 깔끔하게 promise를 사용할 수 있는 방법
 // 기존에 존재하는 promise를 위해 조금 더 간편한 API를 제공한 것
-    // * ㄴ> syntactic sugar(문법 설탕) : 기존에 존재하는 것을 감싸서 쉽게 코드를 읽을 수 있게 만드는 것
+// * ㄴ> syntactic sugar(문법 설탕) : 기존에 존재하는 것을 감싸서 쉽게 코드를 읽을 수 있게 만드는 것
 // ! promise를 대체해서 사용하는 것은 X (상황에 따라 다르다)
 
 // * 1. async
@@ -63,8 +63,12 @@ async function getBanana() {
 // *** async + await 이용
 async function pickFruits() {
     // 사과와 바나나를 다 받아와서
-    const apple = await getApple();
-    const banana = await getBanana();
+    try {
+        const apple = await getApple();
+        const banana = await getBanana();
+    } catch (e) {
+        console.log(e);
+    }
     // Promise가 모두 처리 되면 결과를 반환
     return `${apple} + ${banana}`;
 }
