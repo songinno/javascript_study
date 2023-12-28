@@ -37,6 +37,7 @@ function delay(ms) {
 
 async function getApple() {
     await delay(2000);
+    // throw new Error('Error Ouccered!');
     return '사과';
 }
 
@@ -61,7 +62,7 @@ async function getBanana() {
 } */
 
 // *** async + await 이용
-async function pickFruits() {
+/* async function pickFruits() {
     // 사과와 바나나를 다 받아와서
     try {
         const apple = await getApple();
@@ -71,7 +72,7 @@ async function pickFruits() {
     }
     // Promise가 모두 처리 되면 결과를 반환
     return `${apple} + ${banana}`;
-}
+} */
 
 // *** await 병렬처리
 // * 각각의 promise를 만들어서 바로 실행시켜주기
@@ -92,7 +93,9 @@ function pickFruits() {
 }
 
 const result = pickFruits();
-result.then(console.log); // 사과 + 바나나
+result
+    .then(console.log)
+    .catch(console.log); // 사과 + 바나나
 
 // * Promise API - Promise.race()
 // 어떤 과일이든 상관 없고, 먼저 따지는(처리되는, return 되는) 과일 하나만 가져오기
