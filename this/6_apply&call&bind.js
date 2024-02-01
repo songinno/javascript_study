@@ -67,4 +67,4 @@ function foo3() {
 }
 
 var p2 = new Person3('Kang');
-p2.doSometing(foo3);
+p2.doSometing(foo3); // Kang
